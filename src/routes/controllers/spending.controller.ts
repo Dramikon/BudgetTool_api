@@ -35,7 +35,15 @@ export class SpendingController extends BaseController {
 
   public static post(request: Request, response: Response) {
     let spending = new Spending(request.body);
-    spending.save((error, result) => this.handleResult(error, result, response));
+    spending.save()
+      .catch(error => {
+        response.status(500).send(error);
+      })
+      .then(result => {
+        response.json(result);
+      });
+
+    // spending.save((error, result) => this.handleResult(error, result, response));
   }
 
   public static delete(request: Request, response: Response) {

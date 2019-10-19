@@ -2,21 +2,21 @@ import * as mongoose from 'mongoose';
 
 export const SpendingSchema = new mongoose.Schema({
     userId: {
-      type: String,
+      type: mongoose.SchemaTypes.ObjectId,
       required: 'userId is required',
     },
     spendTypeId: {
-      type: String,
+      type: mongoose.SchemaTypes.ObjectId,
     },
     sum: {
-      type: Number,
+      type: mongoose.SchemaTypes.Number,
       required: 'sum is required',
     },
     comment: {
-      type: String,
+      type: mongoose.SchemaTypes.String,
     },
     createdAt: {
-      type: Date,
+      type: mongoose.SchemaTypes.Date,
       default: Date.now(),
     },
   }

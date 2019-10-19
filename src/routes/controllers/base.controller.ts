@@ -1,6 +1,7 @@
 import { Response } from 'express';
 
 export class BaseController {
+
   public static handleResult(error: any, result: any, response: Response) {
     if(error) {
       response.send(error);
